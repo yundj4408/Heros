@@ -61,21 +61,21 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name=_('Phnum'),
         max_length=15,
         unique=True,
-        default='phnum'
+        default='phnum',
     )
     is_active = models.BooleanField(
         verbose_name=_('Is active'),
-        default=True
+        default=True,
     )
     date_joined = models.DateTimeField(
         verbose_name=_('Date joined'),
-        default=timezone.now
+        default=timezone.now,
     )
     # 이 필드는 레거시 시스템 호환을 위해 추가할 수도 있다.
     salt = models.CharField(
         verbose_name=_('Salt'),
         max_length=10,
-        blank=True
+        blank=True,
     )
 
     objects = UserManager()
