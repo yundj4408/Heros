@@ -8,26 +8,28 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, id, name, password=None):
+    def create_user(self, id, name, password=None, civnum=None, phnum=None):
         if not id:
             raise ValueError(_('Users must have an email address'))
 
         user = self.model(
             id=id,
             name=name,
-
+            civnum=civnum,
+            phnum=phnum(),
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, id, name, password=None):
+    def create_superuser(self, id, name, password=None,civnum=None, phnum=None):
         user = self.create_user(
             name=name,
             id=id,
             password=password,
-
+            civnum=civnum,
+            phnum=phnum,
         )
 
         user.is_superuser = True
@@ -48,6 +50,18 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=10,
         unique=True,
     )
+    civnum = models.CharField(
+        verbose_name=_('Civnum'),
+        max_length=15,
+        unique=True,
+        default='civnum',
+    )
+    phnum = models.CharField(
+        verbose_name=_('Phnum'),
+        max_length=15,
+        unique=True,
+        default='phnum'
+    )
     is_active = models.BooleanField(
         verbose_name=_('Is active'),
         default=True
@@ -66,7 +80,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'id'
-    REQUIRED_FIELDS = ['name', ]
+    REQUIRED_FIELDS = ['name', 'civnum', 'phnum']
 
     class Meta:
         verbose_name = _('user')
