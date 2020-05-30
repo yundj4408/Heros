@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}구해요!{% endblock %}
+{% block contents %}
+여기는 노예
+<div class="container">
+    <script language="JavaScript">
+        i=1;
+     </script>
+    {% for feed in articles %}
+    <div class="feed">
+        <script language="JavaScript">
+        document.write(i);
+        </script>
+
+        <a href="feed/{{ feed.pk }}/" class="title">{{ feed.title }}</a>
+        <a class="name">{{ feed.author }}</a>
+        <a class="date">{{ feed.created_at }}</a>
+        <script language="JavaScript">
+        i++;
+        </script>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="btn1">
+<a href="/employee/new">글쓰기<width="22px" style="margin:9px 0 0 13px"></a>
+</div>
+
+
+{% endblock %}
+

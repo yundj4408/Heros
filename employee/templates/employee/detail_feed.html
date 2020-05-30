@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <b>글쓴이</b> {{ feed.author }}<br><br>
+    <b>날짜</b> {{ feed.created_at }}<br><br>
+    <b>제목</b> {{ feed.title }}<br><br>
+    <b>내용</b> {{ feed.text}}
+</body>
+</html>
+<br><br>
+<div><a href="/employee/feed/{{ feed.pk }}/edit">수정<height="16px"></a> <a href="/employee/feed/{{ feed.pk }}/remove">삭제<height="16px"></a>
+<a href="/employee/">뒤로가기<height="16px"></a>
+</div>

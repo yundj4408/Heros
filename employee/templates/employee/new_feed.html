@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}구해요!{% endblock %}
+{% block contents %}
+<div class="form_box">
+    <form method="POST">
+        {% csrf_token %}
+        <h3>게시물 올리기</h3>
+        <input class="input_field" type="text" placeholder="글쓴이의 이름은?" name="author"><br>
+        <input class="input_field" type="password" placeholder="글 비밀번호" name="password"><br>
+        <input class="input_field" type="text" placeholder="제목을 입력해주세요." name="title"><br>
+        <textarea class="textarea_field" placeholder="내용을 입력해주세요." name="content"></textarea><br>
+        <button class="write_button">게시</button>
+    </form>
+</div>
+
+{% endblock %}
+
