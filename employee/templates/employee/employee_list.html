@@ -1,32 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
 {% block contents %}
-<style type="text/css">
-@charset "utf-8";
-    .menu {
-        text-align:center;
-        height:50px;
-        width:100px;
-		transition: all 0.5s ease;
-		background: white;
-		padding: 10px;
-		font-family: 'Nanum Gothic', sans-serif;
-		font-weight: 600;
-	 }
-	 .menu:hover{
-	    color:#FFFFFF;
-		background: #10A4FF;
-	 }
-	 .menu-discript{
-		color:#999999;
-		font-weight: lighter;
-		margin:10px 0;
-	 }
-	 #list_emp td{
-	    width:25%;
-	 }
 
-</style>
 
 <div class="container">
 <nav id="bo_cate">
@@ -42,6 +17,7 @@
           </ul>
 </nav>
 </div>
+
 여기는 노예
 
 <div class="container">
@@ -59,10 +35,9 @@
         i=1;
      </script>
     {% for feed in articles %}
-
-    <div class="feed" >
-        <table style="width:100%;height:'';"><tr id="list_emp">
-            <td >
+    <div id="feed" style="height:''">
+        <table style="width:100%;height:'';padding:0px"><tr id="list_emp">
+            <td>
                 <script>
                 document.write(i);
                 </script>
@@ -79,7 +54,7 @@
             <td>
                 <a class="date">{{ feed.created_at }}</a>
             </td>
-            <hr>
+            <hr style="padding:0px">
         <script>
         i++;
         </script>
@@ -87,35 +62,30 @@
     </div>
     {% endfor %}
 </div>
-<br>
+<!-- 여기까지 글 목록 영역-->
+<!-- 여기부터 글 페이지 이동 영역-->
 <div class="container">
-    <table style="width:100%"><tr id="list_emp">
-        <td></td>
-        <td style="width:50%" >
-            <nav id="switch_page">
-                <ul>
-                    <a href=""><li style="width:8%">이전</li></a>
-                    <a href=""><li>1</li></a>
-                    <a href=""><li>2</li></a>
-                    <a href=""><li>3</li></a>
-                    <a href=""><li>4</li></a>
-                    <a href=""><li>5</li></a>
-                    <a href=""><li>6</li></a>
-                    <a href=""><li>7</li></a>
-                    <a href=""><li>8</li></a>
-                    <a href=""><li>9</li></a>
-                    <a href=""><li style="width:8%">다음</li></a>
-                </ul>
-            </nav>
+    <table style="width:100%"><tr>
+        <td style="width:25%;"></td>
+        <td style="width:50%;text-align:center;">
+
+    {% if posts.has_previous %}
+     <a href="?page=1"> << </a>
+     <a href="?page={{posts.previous_page_number}}"> < </a><a>   </a>
+     {%endif%}
+     <span>{{posts.number}}</span>
+     <span>/</span>
+     <span>{{posts.paginator.num_pages}}</span>
+     {% if posts.has_next %}
+     <a href="?page={{posts.next_page_number}}"> > </a>
+     <a href="?page={{posts.paginator.num_pages}}"> >> </a>
+        {% endif %}
         </td>
-        <td><a href="/employee/new" style="float:right"><div class="menu" style="line-height:30px;">글쓰기</div></a></td>
-    </tr>
-    </table>
+
+        <td style="width:25%;">
+            <a href="/employee/new" style="float:right"><div class="menu" >글쓰기</div></a>
+        </td>
+    </tr></table>
 </div>
 
-
-<br><br><br>
-
-
 {% endblock %}
-

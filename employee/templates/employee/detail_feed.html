@@ -1,17 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <b>글쓴이</b> {{ feed.author }}<br><br>
-    <b>날짜</b> {{ feed.created_at }}<br><br>
-    <b>제목</b> {{ feed.title }}<br><br>
-    <b>내용</b> {{ feed.text}}
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}구해요!{% endblock %}
+{% block contents %}
+<style>
+    #info_table{
+    }
+    #info_table td{
+        width:'';
+    }
+</style>
+<div class="container">
+    <hr>
+    <b>제목</b> &nbsp;&nbsp;{{ feed.title }}
+    <hr>
+    <table style="width:100%" id="info_table"><tr>
+        <td><b>글쓴이</b>&nbsp;&nbsp; {{ feed.author }} </td>
+        <td><b>날짜</b>&nbsp;&nbsp; {{ feed.created_at }} </td>
+    </tr>
+    </table>
+    <hr>
+    <br><!--
+    <b>내용</b> -->
+    {{ feed.text}}
+    <br>
+    <br>
+    <hr>
+    <b>덧글</b>
 <br><br>
-<div><a href="/employee/feed/{{ feed.pk }}/edit">수정<height="16px"></a> <a href="/employee/feed/{{ feed.pk }}/remove">삭제<height="16px"></a>
-<a href="/employee/">뒤로가기<height="16px"></a>
 </div>
+
+<div class="container" style="width:100%;">
+    <table style="width:100%"><tr><td>
+    <a href="/employee/feed/{{ feed.pk }}/edit" style="float:left"><div class="menu" style="line-height:30px;">수정</div></a>
+    <a href="/employee/feed/{{ feed.pk }}/remove" style="float:left"><div class="menu" style="line-height:30px;">삭제</div></a>
+    <a href="/employee/" style="float:right"><div class="menu" >뒤로가기</div></a>
+    </td></tr></table>
+</div>
+<br>
+
+{% endblock %}

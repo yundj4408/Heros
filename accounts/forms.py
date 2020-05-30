@@ -101,7 +101,7 @@ class UserChangeForm(forms.ModelForm):
         model = User
         fields = ('id', 'password', 'is_active', 'is_superuser','phnum')
 
-    def clean_password(self):
+    def clean_password2(self):
         return ""
 
 class CustomUserChangeForm(UserChangeForm):
