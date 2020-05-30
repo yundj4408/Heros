@@ -1,26 +1,68 @@
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
 {% block contents %}
+
+
+<div class="container">
+<nav id="bo_cate">
+            <ul>
+                <li><a href="" id="bo_cate_on">전체</a></li>
+                <li><a href="">집안일</a></li>
+                <li><a href="">짐 옮기기</a></li>
+                <li><a href="">펫 서비스</a></li>
+                <li><a href="">역할 대행</a></li>
+                <li><a href="">단거리 배달</a></li>
+                <li><a href="">카풀</a></li>
+                <li><a href="">기타</a></li>
+          </ul>
+</nav>
+</div>
+
 여기는 노예
+
+<div class="container">
+    <table style="width:100%"><tr id="list_emp">
+        <td>글 번호</td>
+        <td>제목</td>
+        <td>글쓴이</td>
+        <td>날짜</td>
+    </tr>
+    </table>
+</div>
+
 <div class="container">
     <script language="JavaScript">
         i=1;
      </script>
     {% for feed in articles %}
-    <div class="feed">
-        <script language="JavaScript">
-        document.write(i);
-        </script>
-        <a href="feed/{{ feed.pk }}/" class="title">{{ feed.title }}</a>
-        <a class="name">{{ feed.author }}</a>
-        <a class="date">{{ feed.created_at }}</a>
-        <script language="JavaScript">
+    <div id="feed" style="height:''">
+        <table style="width:100%;height:'';padding:0px"><tr id="list_emp">
+            <td>
+                <script>
+                document.write(i);
+                </script>
+            </td>
+
+            <td>
+                <a href="feed/{{ feed.pk }}/" class="title">{{ feed.title }}</a>
+            </td>
+
+            <td>
+                <a class="name">{{ feed.author }}</a>
+            </td>
+
+            <td>
+                <a class="date">{{ feed.created_at }}</a>
+            </td>
+            <hr style="padding:0px">
+        <script>
         i++;
         </script>
-
+        </tr></table>
     </div>
     {% endfor %}
-     {% if posts.has_previous %}
+
+    {% if posts.has_previous %}
      <a href="?page=1"><<  </a>
      <a href="?page={{posts.previous_page_number}}"> < </a><a>   </a>
      {%endif%}
