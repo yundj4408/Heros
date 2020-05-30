@@ -4,9 +4,9 @@
     <style type="text/css">
     a {
         text-decoration:none;
-        color: White
+        color: Black
     }
-    .lo {text-transform: lowercase;}
+
         #container{
             height:500px;
             display : flex;
@@ -16,10 +16,39 @@
         #item {
         }
         body {
-		background-image : url('{% static 'image/Login.jpg' %}');
+
+
+		background-image : url('{% static 'image/White.jpg' %}');
+
+
 		background-repeat : no-repeat;
 		background-size : cover;
         }
+
+        #container .btn-success{
+        font-family: 'InkLipquid';
+        font-size : 2em;
+        }
+        .container .btn-success {
+        width :90px;
+        height:50px;
+        }
+        .container .save{
+        position: absolute;
+        top: 67%;
+        left: 43%;
+        }
+
+        .container .Sign{
+        position: absolute;
+        top: 67%;
+        left: 53%;
+        }
+
+
+
+
+
     </style>
 </head>
 
@@ -32,6 +61,24 @@
 
             <form method="POST" action="{% url 'accounts:login_view' %}" >
               {%csrf_token%}
+
+              <div class="form-group" >
+                  <table style="width:100%;vertical-align:middle;"><tr style="align-items: center;"><td style="width:20%;">
+                      <label for="{{ form.username.id_for_label }}" style="color: Black ; font-size: 3em;" >ID</label></td>
+                      <td style="float:right;line-height:10px;"><div style="width:100%;height:100%;">
+                          <br><br>
+                          <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="15" name="{{ form.username.html_name }}" type="text" />
+                      </div></td>
+                  </tr></table></div>
+              <div class="form-group" >
+                  <table style="width:100%"><tr><td style="width:20%;">
+                <label for="{{ form.password.id_for_label }}" style="color: Black ; font-size: 3em;">P.W</label></td>
+                      <td style="float:right"><div><br>
+                <input class="form-control" id="{{ form.password.id_for_label }}" maxlength="120" name="{{ form.password.html_name }}" type="password" />
+                  </div></td></tr></table></div>
+                    </tr></table>
+              <input type="submit" class="save btn btn-success"  value="Log in">
+
               <h2 class="sub-title"> 로그인 </h2>
                 {% if form.errors %}
                 <p>Your username and password didn't match. Please try again.</p>
@@ -49,8 +96,9 @@
 
               <input type="submit" class="save btn btn-success" value="로그인">
 
+
               <a href="{% url 'accounts:signup_view' %}">
-                <button type="button" class="btn btn-danger">Signup</button>
+                <button type="button" class="Sign btn btn-success">Signup</button>
               </a>
             </form>
 
