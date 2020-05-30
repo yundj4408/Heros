@@ -1,0 +1,12 @@
+
+/* 게시판 버튼 */
+/* 목록 버튼 */
+
+
+#bo_cate {background:#ffffff;padding:5px;margin:10px 0;}
+#bo_cate ul {zoom:1}
+#bo_cate ul:after {display:block;visibility:hidden;clear:both;content:""}
+#bo_cate li {display:inline-block;padding:2px 0 2px 0;}
+#bo_cate a {color:#8b0029;display:block;line-height:26px;padding:0 10px;border-radius:3px;border:1px solid transparent}
+#bo_cate a:focus, #bo_cate a:hover, #bo_cate a:active {text-decoration:none;background:#dcd2d2;}
+#bo_cate #bo_cate_on {z-index:2;background:#8b0029;color:#fff;font-weight:bold;border-bottom-color:#77111f}
