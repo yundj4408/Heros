@@ -1,30 +1,120 @@
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
 {% block contents %}
+<style type="text/css">
+@charset "utf-8";
+    .menu {
+        text-align:center;
+        height:50px;
+        width:100px;
+		transition: all 0.5s ease;
+		background: white;
+		padding: 10px;
+		font-family: 'Nanum Gothic', sans-serif;
+		font-weight: 600;
+	 }
+	 .menu:hover{
+	    color:#FFFFFF;
+		background: #10A4FF;
+	 }
+	 .menu-discript{
+		color:#999999;
+		font-weight: lighter;
+		margin:10px 0;
+	 }
+	 #list_emp td{
+	    width:25%;
+	 }
+
+</style>
+
+<div class="container">
+<nav id="bo_cate">
+            <ul>
+                <li><a href="" id="bo_cate_on">전체</a></li>
+                <li><a href="">집안일</a></li>
+                <li><a href="">짐 옮기기</a></li>
+                <li><a href="">펫 서비스</a></li>
+                <li><a href="">역할 대행</a></li>
+                <li><a href="">단거리 배달</a></li>
+                <li><a href="">카풀</a></li>
+                <li><a href="">기타</a></li>
+          </ul>
+</nav>
+</div>
 여기는 노예
+
+<div class="container">
+    <table style="width:100%"><tr id="list_emp">
+        <td>글 번호</td>
+        <td>제목</td>
+        <td>글쓴이</td>
+        <td>날짜</td>
+    </tr>
+    </table>
+</div>
+
 <div class="container">
     <script language="JavaScript">
         i=1;
      </script>
     {% for feed in articles %}
-    <div class="feed">
-        <script language="JavaScript">
-        document.write(i);
-        </script>
 
-        <a href="feed/{{ feed.pk }}/" class="title">{{ feed.title }}</a>
-        <a class="name">{{ feed.author }}</a>
-        <a class="date">{{ feed.created_at }}</a>
-        <script language="JavaScript">
+    <div class="feed" >
+        <table style="width:100%;height:'';"><tr id="list_emp">
+            <td >
+                <script>
+                document.write(i);
+                </script>
+            </td>
+
+            <td>
+                <a href="feed/{{ feed.pk }}/" class="title">{{ feed.title }}</a>
+            </td>
+
+            <td>
+                <a class="name">{{ feed.author }}</a>
+            </td>
+
+            <td>
+                <a class="date">{{ feed.created_at }}</a>
+            </td>
+            <hr>
+        <script>
         i++;
         </script>
+        </tr></table>
     </div>
     {% endfor %}
 </div>
-
-<div class="btn1">
-<a href="/employee/new">글쓰기<width="22px" style="margin:9px 0 0 13px"></a>
+<br>
+<div class="container">
+    <table style="width:100%"><tr id="list_emp">
+        <td></td>
+        <td style="width:50%" >
+            <nav id="switch_page">
+                <ul>
+                    <a href=""><li style="width:8%">이전</li></a>
+                    <a href=""><li>1</li></a>
+                    <a href=""><li>2</li></a>
+                    <a href=""><li>3</li></a>
+                    <a href=""><li>4</li></a>
+                    <a href=""><li>5</li></a>
+                    <a href=""><li>6</li></a>
+                    <a href=""><li>7</li></a>
+                    <a href=""><li>8</li></a>
+                    <a href=""><li>9</li></a>
+                    <a href=""><li style="width:8%">다음</li></a>
+                </ul>
+            </nav>
+        </td>
+        <td><a href="/employee/new" style="float:right"><div class="menu" style="line-height:30px;">글쓰기</div></a></td>
+    </tr>
+    </table>
 </div>
+
+
+<br><br><br>
 
 
 {% endblock %}
