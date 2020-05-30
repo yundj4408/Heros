@@ -25,6 +25,16 @@
 	 #list_emp td{
 	    width:25%;
 	 }
+	 #feed hr {
+	    height: 1px;
+	    display: block;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        box-shadow: 0 10px 10px -10px #8c8b8b inset;
+        border-width: 1px;
+	 }
 
 </style>
 
@@ -60,9 +70,9 @@
      </script>
     {% for feed in articles %}
 
-    <div class="feed" >
-        <table style="width:100%;height:'';"><tr id="list_emp">
-            <td >
+    <div id="feed" style="height:''">
+        <table style="width:100%;height:'';padding:0px"><tr id="list_emp">
+            <td>
                 <script>
                 document.write(i);
                 </script>
@@ -79,7 +89,7 @@
             <td>
                 <a class="date">{{ feed.created_at }}</a>
             </td>
-            <hr>
+            <hr style="padding:0px">
         <script>
         i++;
         </script>
