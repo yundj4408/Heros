@@ -5,9 +5,9 @@
     <style type="text/css">
     a {
         text-decoration:none;
-        color: White
+        color: Black
     }
-    .lo {text-transform: lowercase;}
+
 </style>
 
     </head>
@@ -25,7 +25,7 @@
         }
         body {
 
-		background-image : url('{% static 'image/Login.jpg' %}');
+		background-image : url('{% static 'image/White.jpg' %}');
 
 		background-repeat : no-repeat;
 
@@ -47,7 +47,7 @@
 
             <form method="post" action="{% url 'accounts:login_view' %}" class="sign-in-form">
               {%csrf_token%}
-              <h2 class="sub-title"> 로그인 </h2>
+
               {% if form.errors %}
               <p>Your username and password didn't match. Please try again.</p>
               {% endif %}
@@ -60,11 +60,11 @@
                   {% endif %}
               {% endif %}
               <div class="form-group">
-                <label for="{{ form.username.id_for_label }}">ID</label>
+                <label for="{{ form.username.id_for_label }}" style="color: Black ; font-size: 3em;" >ID</label>
                 <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="15" name="{{ form.username.html_name }}" type="text" />
               </div>
               <div class="form-group">
-                <label for="{{ form.password.id_for_label }}">패스워드</label>
+                <label for="{{ form.password.id_for_label }}" style="color: Black ; font-size: 3em;">P.W</label>
                 <input class="form-control" id="{{ form.password.id_for_label }}" maxlength="120" name="{{ form.password.html_name }}" type="password" />
               </div>
               <input type="submit" class="save btn btn-success" value="로그인">
