@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600");
 @font-face { font-family: 'InkLipquid'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff'); font-weight: normal; font-style: normal; }
 .inkfont{
-    color:green;
+    color:Green;
     font-family: 'InkLipquid';
     font-size: 3.5em;
 }
@@ -3124,4 +3124,8 @@ form .template-btn {
 }
 .tab-item li:hover {
     color: #ff9902;
+}
+
+.container a div{
+
 }
