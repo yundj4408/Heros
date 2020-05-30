@@ -93,3 +93,37 @@ Pycharm을 이용하여 웹페이지 개발을 하였고, 5월21일에 있을 �
 ![groupmeeting](groupmeeting.jpg)
 ![PPT0520](PPT0520.JPG)
 
+## 5월 27일
+1시에 팀원들과 모여서 회의를 시작하였고, html를 손보던 중 Pycharm에러가 너무 많이 떠서 pycharm에러를 해결하는데 3시간이 걸렸다. 
+5시부터 8시까지 HTML  및 BACKEND구현
+
+메인페이지에 넣을 그림을 만들었다.
+![0527.1](0527mainpageDesign.png)
+메인페이지에 적용한 모습이다.
+![0527.2](0527mainpage.png)
+게시판 목록에 어떤게 들어갈 지 정하여 보았다.
+![0527.3](0527boardlist.jpg5)
+5월 27일 그룹 미팅 사진
+![0527.4](0527meeting.jpg)
+
+## 5월 30일
+1시에 팀원들과 현재까지 우리 팀이 이뤄낸 성과를 확인하였다.
+그 후 11시까지 게시판 목록, 게시판 글쓰기, 게시판 글쓰기 수정, 로그인 페이지, 그리고 마이페이지를 수정하였다.
+
+게시판 글쓰기
+![0530boardwrite](0530boardwrite.PNG)
+
+게시판 글 목록
+![0530boardlist](0530boardlist.png)
+
+로그인 페이지
+![0530login](0530login.png)
+
+마이페이지
+![0530mypage](0530mypage.png)
+![0530mypageedit](0530mypageedit.png)
+
+그룹 미팅 사진
+![0530](0530meeting.png)
+
+
