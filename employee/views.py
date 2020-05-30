@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from employee.models import Article
+from django.core.paginator import Paginator
 # Create your views here.
 def employee_all(request):
     articles = Article.objects.all()
-    return render(request, 'employee/employee_list.html', { 'articles':articles })
+    paginator = Paginator(articles, 3)
+    page = request.GET.get('page')  # 없으면 1로 지
+    posts = paginator.get_page(page)
+    return render(request, 'employee/employee_list.html', { 'articles':articles , 'posts':posts})
 
 def new_feed(request):
     if request.method == 'POST':  # 폼이 전송되었을 때만 아래 코드를 실행

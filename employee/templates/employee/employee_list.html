@@ -1,39 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
 {% block contents %}
-<style type="text/css">
-@charset "utf-8";
-
-    .menu {
-        height:50px;
-        width:100px;
-		transition: all 0.5s ease;
-		background: white;
-		padding: 10px;
-		font-family: 'Nanum Gothic', sans-serif;
-		font-weight: 600;
-	 }
-	 .menu:hover{
-		background: #10A4FF;
-	 }
-	 .menu-discript{
-		color:#999999;
-		font-weight: lighter;
-		margin:10px 0;
-	 }
-</style>
-<nav id="bo_cate">
-            <ul id="bo_cate_ul">
-                <li><a href="" id="bo_cate_on">전체</a></li>
-                <li><a href="">집안일</a></li>
-                <li><a href="">짐 옮기기</a></li>
-                <li><a href="">펫 서비스</a></li>
-                <li><a href="">역할 대행</a></li>
-                <li><a href="">단거리 배달</a></li>
-                <li><a href="">카풀</a></li>
-                <li><a href="">기타</a></li>
-          </ul>
-</nav>
 여기는 노예
 <div class="container">
     <script language="JavaScript">
@@ -44,22 +11,26 @@
         <script language="JavaScript">
         document.write(i);
         </script>
-
         <a href="feed/{{ feed.pk }}/" class="title">{{ feed.title }}</a>
         <a class="name">{{ feed.author }}</a>
         <a class="date">{{ feed.created_at }}</a>
         <script language="JavaScript">
         i++;
         </script>
+
     </div>
     {% endfor %}
+     {% if posts.has_previous %}
+     <a href="?page=1"><<  </a>
+     <a href="?page={{posts.previous_page_number}}"> < </a><a>   </a>
+     {%endif%}
+     <span>{{posts.number}}</span>
+     <span>/</span>
+     <span>{{posts.paginator.num_pages}}</span>
+     {% if posts.has_next %}
+     <a href="?page={{posts.next_page_number}}"> > </a>
+     <a href="?page={{posts.paginator.num_pages}}"> >> </a>
+     {% endif %}
 </div>
-
-<a href="/employee/new">
-    <div class="menu">글쓰기</div>
-</a>
-
-
-
 {% endblock %}
 
