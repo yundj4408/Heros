@@ -16,7 +16,7 @@ class UserManager(BaseUserManager):
             id=id,
             name=name,
             civnum=civnum,
-            phnum=phnum(),
+            phnum=phnum,
         )
 
         user.set_password(password)
@@ -31,6 +31,7 @@ class UserManager(BaseUserManager):
             civnum=civnum,
             phnum=phnum,
         )
+
 
         user.is_superuser = True
         user.is_admin = True
