@@ -44,16 +44,35 @@
                 <h1 style="font-family: 'InkLipquid'; font-size: 5em;"><a href="{% url 'main:index' %}" >Heros</a></h1>
             </div>
 
-            <div if ="item">
-                 <form method="POST" action="{% url 'accounts:login_view' %}">
-                     {% csrf_token %}
+            <form method="post" action="{% url 'accounts:login_view' %}" class="sign-in-form">
+  {%csrf_token%}
+  <h2 class="sub-title"> 로그인 </h2>
+  {% if form.errors %}
+  <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  {% if next %}
+      {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+      {% else %}
+      <p>Please login to see this page.</p>
+      {% endif %}
+  {% endif %}
+  <div class="form-group">
+    <label for="{{ form.username.id_for_label }}">ID</label>
+    <input class="form-control" id="{{ form.username.id_for_label }}" maxlength="15" name="{{ form.username.html_name }}" type="text" />
+  </div>
+  <div class="form-group">
+    <label for="{{ form.password.id_for_label }}">패스워드</label>
+    <input class="form-control" id="{{ form.password.id_for_label }}" maxlength="120" name="{{ form.password.html_name }}" type="password" />
+  </div>
+  <input type="submit" class="save btn btn-success" value="로그인">
+  <a href="{% url 'accounts:signup_view' %}">
+    <button type="button" class="btn btn-danger">Signup</button>
+  </a>
+  <input type="hidden" name="next" value="{{ next }}" />
+</form>
 
-                     {{ login_form }}
-                 <br><br>
-                     <input type="submit" class="btn btn-primary" value="login">
-                    </form>
-
-            </div>
 
         </center>
     </div>
