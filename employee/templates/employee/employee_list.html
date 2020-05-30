@@ -61,9 +61,16 @@
         </tr></table>
     </div>
     {% endfor %}
+</div>
+<!-- 여기까지 글 목록 영역-->
+<!-- 여기부터 글 페이지 이동 영역-->
+<div class="container">
+    <table style="width:100%"><tr>
+        <td style="width:25%;"></td>
+        <td style="width:50%;text-align:center;">
 
     {% if posts.has_previous %}
-     <a href="?page=1"><<  </a>
+     <a href="?page=1"> << </a>
      <a href="?page={{posts.previous_page_number}}"> < </a><a>   </a>
      {%endif%}
      <span>{{posts.number}}</span>
@@ -72,7 +79,13 @@
      {% if posts.has_next %}
      <a href="?page={{posts.next_page_number}}"> > </a>
      <a href="?page={{posts.paginator.num_pages}}"> >> </a>
-     {% endif %}
-</div>
-{% endblock %}
+        {% endif %}
+        </td>
 
+        <td style="width:25%;">
+            <a href="/employee/new" style="float:right"><div class="menu" >글쓰기</div></a>
+        </td>
+    </tr></table>
+</div>
+
+{% endblock %}
