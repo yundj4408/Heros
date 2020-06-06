@@ -96,7 +96,7 @@ class UserCreationForm(forms.ModelForm):
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
-        model = get_user_model()
+        model = User
         fields = ( 'name','phnum',)
 
 
@@ -109,3 +109,8 @@ class LoginForm(AuthenticationForm):
             self.fields[field_name].widget.attrs.update({
                 'class': 'form-control'
             })
+
+class UserDeleteForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields = ('name',)

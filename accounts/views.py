@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import auth
+from django.contrib import auth, messages
 from .forms import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
@@ -36,8 +36,8 @@ def logout_view(request):
     auth.logout(request)
     return redirect('/')
 
-def people(request, name):
-    people = get_object_or_404(get_user_model(), name = name)
+def people(request, id):
+    people = get_object_or_404(get_user_model(), id = id)
     return render(request, 'accounts/people.html', {'people':people})
 
 def update(request):
@@ -45,16 +45,20 @@ def update(request):
         change_form = CustomUserChangeForm(request.POST, instance=request.user)
         if change_form.is_valid():
             change_form.save()
-            return redirect('accounts/people.html', request.user.name)
+            return redirect('/')
         return render(request, 'accounts/update.html',{'change_form':change_form})
 
     else:
         change_form = CustomUserChangeForm(request.POST)
         return render(request, 'accounts/update.html',{'change_form':change_form})
 
-@login_required
+#@login_required
 def delete(request):
-    if request.method == 'POST':
-        request.user.delete()
+    if request.method == "POST":
+  #      delete_form=UserDeleteForm(request.POST, instance=request.user)
+        user = request.user
+        user.delete()
+        messages.info(request, 'Your account has been deleted.')
         return redirect('/')
+
     return render(request, 'accounts/delete.html')
