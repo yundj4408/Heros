@@ -3,7 +3,7 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import ugettext_lazy as _
 from .models import UserManager, User
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm,UserChangeForm
 
 class UserCreationForm(forms.ModelForm):
     id = forms.CharField(
@@ -92,17 +92,8 @@ class UserCreationForm(forms.ModelForm):
         return user
 
 
-class UserChangeForm(forms.ModelForm):
-    password = ReadOnlyPasswordHashField(
-        label=_('password')
-    )
+#class UserChangeForm(forms.ModelForm):
 
-    class Meta:
-        model = User
-        fields = ('id', 'password', 'is_active', 'is_superuser','phnum')
-
-    def clean_password2(self):
-        return ""
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
