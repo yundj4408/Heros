@@ -36,8 +36,8 @@ def logout_view(request):
     auth.logout(request)
     return redirect('/')
 
-def people(request, name):
-    people = get_object_or_404(get_user_model(), name = name)
+def people(request, id):
+    people = get_object_or_404(get_user_model(), id = id)
     return render(request, 'accounts/people.html', {'people':people})
 
 def update(request):
@@ -45,7 +45,7 @@ def update(request):
         change_form = CustomUserChangeForm(request.POST, instance=request.user)
         if change_form.is_valid():
             change_form.save()
-            return redirect('accounts/people.html', request.user.name)
+            return redirect('/')
         return render(request, 'accounts/update.html',{'change_form':change_form})
 
     else:
