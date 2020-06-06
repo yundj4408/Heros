@@ -79,24 +79,6 @@
                     </tr></table>
               <input type="submit" class="save btn btn-success"  value="Log in">
 
-              <h2 class="sub-title"> 로그인 </h2>
-                {% if form.errors %}
-                <p>Your username and password didn't match. Please try again.</p>
-                {% endif %}
-
-
-                <div class ="form-group">
-                    <label for="id_username">ID:</label>
-                    <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="20" required="" id="id_username">
-                </div>
-                <div class="form-group">
-                    <label for="id_password">비밀번호:</label>
-                    <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
-                </div>
-
-              <input type="submit" class="save btn btn-success" value="로그인">
-
-
               <a href="{% url 'accounts:signup_view' %}">
                 <button type="button" class="Sign btn btn-success">Signup</button>
               </a>
