@@ -55,9 +55,12 @@
 </div>
 
 <div class="container">
+    {% for feed in articles %}
     <script language="JavaScript">
-        i=1;
+        i++;
      </script>
+    {% endfor %}
+
     {% for feed in posts %}
 
     <div class="feed" >
@@ -86,7 +89,7 @@
             </td>
             <hr>
         <script>
-        i++;
+        i--;
         </script>
         </tr></table>
     </div>
