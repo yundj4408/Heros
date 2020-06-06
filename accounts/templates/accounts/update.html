@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 {% block contents %}
 
-<h1>User Edit</h1>
+<h1>회원 정보 수정</h1>
 
 <form method="POST" action="{% url 'accounts:update' %}">
     {% csrf_token %}
-    {{ change_form }}
-    <input type="submit" value="Submit"/>
+    <div class="form-group">
+        <label>이름</label>
+        <input  type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="20" required="" id="username">
+    </div>
+    <div class="form-group">
+        <label>전화번호</label>
+        <input  type="text" name="phnum" autofocus="" autocapitalize="none" autocomplete="phnum" maxlength="20" required="" id="phnum">
+    </div>
+    <input type="submit" value="정보 변경"/>
 </form>
 
 <a href="{% url 'accounts:delete' %}" class="btn btn-danger">회원탈퇴</a>
