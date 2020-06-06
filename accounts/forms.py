@@ -85,7 +85,6 @@ class UserCreationForm(forms.ModelForm):
     def save(self, commit=True):
         # Save the provided password in hashed format
         user = super(UserCreationForm, self).save(commit=False)
-        # user.set_id(self.cleaned_data['id'])
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
@@ -98,7 +97,9 @@ class UserCreationForm(forms.ModelForm):
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = get_user_model()
-        fields = ( 'phnum',)
+        fields = ( 'name','phnum',)
+
+
 
 class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
