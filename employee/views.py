@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from employee.models import Article
 from django.core.paginator import Paginator
+
 # Create your views here.
 def employee_all(request):
     articles = Article.objects.all()
@@ -11,9 +12,10 @@ def employee_all(request):
 
 def new_feed(request):
     if request.method == 'POST':  # 폼이 전송되었을 때만 아래 코드를 실행
-        if request.POST['author'] != '' and request.POST['title'] != '' and request.POST['price'] != '' and request.POST['text'] != '' and \
+        if request.POST['menuid'] !='게시판선택' and request.POST['author'] != '' and request.POST['title'] != '' and request.POST['price'] != '' and request.POST['text'] != '' and \
                 request.POST['place'] != '':
             new_article = Article.objects.create(
+                menuid=request.POST['menuid'],
                 author=request.POST['author'],
                 title=request.POST['title'],
                 place=request.POST['place'],

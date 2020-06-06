@@ -23,7 +23,7 @@
       margin:10px 0;
     }
     #list_emp td{
-       width:20%;
+       width:10%;
     }
 
 </style>
@@ -58,7 +58,7 @@
     <script language="JavaScript">
         i=1;
      </script>
-    {% for feed in articles %}
+    {% for feed in posts %}
 
     <div class="feed" >
         <table style="width:100%;height:'';"><tr id="list_emp">
@@ -67,7 +67,9 @@
                 document.write(i);
                 </script>
             </td>
-
+            <td>
+                <a class="menuid">{{ feed.menuid }}</a>
+            </td>
             <td>
                 <a class="place">{{ feed.place }}</a>
             </td>
@@ -91,33 +93,30 @@
     {% endfor %}
 </div>
 <br>
+
+<!-- 여기부터 글 페이지 이동 영역-->
 <div class="container">
-    <table style="width:100%"><tr id="list_emp">
-        <td></td>
-        <td style="width:50%" >
-            <nav id="switch_page">
-                <ul>
-                    <a href=""><li style="width:8%">이전</li></a>
-                    <a href=""><li>1</li></a>
-                    <a href=""><li>2</li></a>
-                    <a href=""><li>3</li></a>
-                    <a href=""><li>4</li></a>
-                    <a href=""><li>5</li></a>
-                    <a href=""><li>6</li></a>
-                    <a href=""><li>7</li></a>
-                    <a href=""><li>8</li></a>
-                    <a href=""><li>9</li></a>
-                    <a href=""><li style="width:8%">다음</li></a>
-                </ul>
-            </nav>
+    <table style="width:100%"><tr>
+        <td style="width:25%;"></td>
+        <td style="width:50%;text-align:center;">
+
+    {% if posts.has_previous %}
+     <a href="?page=1"> << </a>
+     <a href="?page={{posts.previous_page_number}}"> < </a><a>   </a>
+            {%endif%}
+     <span>{{posts.number}}</span>
+     <span>/</span>
+     <span>{{posts.paginator.num_pages}}</span>
+     {% if posts.has_next %}
+     <a href="?page={{posts.next_page_number}}"> > </a>
+     <a href="?page={{posts.paginator.num_pages}}"> >> </a>
+     {% endif %}
         </td>
-        <td><a href="/employee/new" style="float:right"><div class="menu" style="line-height:30px;">글쓰기</div></a></td>
-    </tr>
-    </table>
+
+        <td style="width:25%;">
+            <a href="/employee/new" style="float:right"><div class="menu" >글쓰기</div></a>
+        </td>
+    </tr></table>
 </div>
-
-
-<br><br><br>
-
 
 {% endblock %}
