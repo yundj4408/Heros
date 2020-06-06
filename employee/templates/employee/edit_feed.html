@@ -1,17 +1,98 @@
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
 {% block contents %}
+<style>
+ select {
+width: 200px;
+padding: .8em .5em;
+border: 1px solid #999;
+font-family: inherit;
+background: url('arrow.jpg') no-repeat 95% 50%;
+border-radius: 0px;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+</style>
+
 <div class="form_box">
     <form method="POST">
         {% csrf_token %}
-       <h3>글 수정하기</h3>
-        <input class="input_field" type="text" placeholder="글쓴이의 이름은?" name="author" value="{{ feed.author }}"><br>
-        <input class="input_field" type="password" placeholder="글 비밀번호" name="password"><br>
-        <input class="input_field" type="text" placeholder="제목을 입력해주세요." name="title"  value="{{ feed.title }}"><br>
-        <textarea class="textarea_field" placeholder="내용을 입력해주세요." name="content">{{ feed.text }}</textarea><br>
-        <button class="write_button">수정</button>
+        <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h2 class="text-center">게시글 입력하기</h2><p></p>
+
+        <form action="BoardReWriteProc.jsp" method="post">
+            <div class="table table-responsive">
+                      <table class="table table-striped">
+            <tr>
+                <td><b>작성자</b></td>
+                <td><input type="text" class="form-control" name="author" value="{{ feed.author }}"></td>
+            </tr>
+            <tr>
+                <td><b>제목</b></td>
+                <td><input type="text"  class="form-control" name="title"  value="{{ feed.title }}"></td>
+            </tr>
+            <tr>
+                <td><b>장소</b></td>
+                <td><input type="text"  class="form-control" name="place"  value="{{ feed.place }}"></td>
+            </tr>
+            <tr>
+                <td><b>금액</b></td>
+                <td><input type="text"  class="form-control" name="price"  value="{{ feed.price }}"></td>
+            </tr>
+
+            <tr>
+                <td><b>내용</b></td>
+                <td><textarea rows="10" cols="50" name="text"  class="form-control"  value="{{ feed.text }}"<p>
+날짜:
+시간:
+위치:
+                    </textarea>
+                </td>
+            </tr>
+
+                          <select name="menuid" class="step01" id="m_select" onchange="BoardCategoryMgr.onChangeBoardCategory(); return false;" id="boardCategory">
+
+                                 <option value="-1">게시판선택</option>
+
+
+                                 <option wf="true" wfid="65" value="1432">집안일</option>
+
+                                 <option wf="true" wfid="65" value="1433">짐 옮기기</option>
+
+                                 <option wf="true" wfid="65" value="1433">펫 서비스</option>
+
+                                 <option wf="true" wfid="65" value="1433">역할 대행</option>
+
+                                 <option wf="true" wfid="65" value="1433">단거리 배달</option>
+
+                                 <option wf="true" wfid="65" value="1433">카풀</option>
+
+                                 <option wf="true" wfid="65" value="1433">기타</option>
+                           </select>
+            <tr>
+                <td colspan="2"  class="text-center">
+
+                    <input type="hidden" name="num"  value="<%= num %>">
+                    <input type="hidden" name="ref"  value="<%= ref %>">
+                    <input type="hidden" name="ref_step"  value="<%= ref_step %>">
+                    <input type="hidden" name="ref_level"  value="<%= ref_level %>">
+                    <input type="submit" value="수정" class="btn btn-success">
+                    <input type="reset" value="취소" class="btn btn-warning">
+                </td>
+            </tr>
+
+          </table>
+
+
+            </div>
+
+        </form>
+    </div>
+</div>
     </form>
 </div>
 
 {% endblock %}
-

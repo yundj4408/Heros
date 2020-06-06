@@ -11,13 +11,14 @@ def employee_all(request):
 
 def new_feed(request):
     if request.method == 'POST':  # 폼이 전송되었을 때만 아래 코드를 실행
-        if request.POST['author'] != '' and request.POST['title'] != '' and request.POST['content'] != '' and \
-                request.POST['password'] != '':
+        if request.POST['author'] != '' and request.POST['title'] != '' and request.POST['price'] != '' and request.POST['text'] != '' and \
+                request.POST['place'] != '':
             new_article = Article.objects.create(
                 author=request.POST['author'],
                 title=request.POST['title'],
-                text=request.POST['content'],
-                password=request.POST['password']
+                place=request.POST['place'],
+                price=request.POST['price'],
+                text=request.POST['text']
             )
 
             # 새글 등록 끝
@@ -33,7 +34,6 @@ def remove_feed(request, pk):
     article = Article.objects.get(pk=pk)
 
     if request.method == 'POST':
-        if request.POST['password'] == article.password:
             article.delete()
             return redirect('/employee/')  # 첫페이지로 이동하기
 
@@ -43,10 +43,11 @@ def edit_feed(request, pk):
     article = Article.objects.get(pk=pk)
 
     if request.method == 'POST':
-        if request.POST['password'] == article.password:
             article.author = request.POST['author']
             article.title = request.POST['title']
-            article.text = request.POST['content']
+            article.place = request.POST['place']
+            article.price = request.POST['price']
+            article.text = request.POST['text']
             article.save()
             return redirect(f'/employee/feed/{ article.pk }')
 
