@@ -27,8 +27,8 @@ appearance: none;
             <div class="table table-responsive">
                       <table class="table table-striped">
             <tr>
-                <td><b>작성자</b></td>
-                <td><input type="text" class="form-control" name="author"></td>
+                <td><b>작성자 </b></td>
+                <td>{{user.id}}</td>
             </tr>
             <tr>
                 <td><b>제목</b></td>
@@ -55,7 +55,7 @@ appearance: none;
 
                           <select name="menuid" class="step01" id="m_select" onchange="BoardCategoryMgr.onChangeBoardCategory(); return false;" id="boardCategory">
 
-                                 <option value="-1">게시판선택</option>
+                                 <option value="게시판선택">게시판선택</option>
 
 
                                  <option wf="true" wfid="65" value="집안일">집안일</option>

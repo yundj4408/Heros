@@ -66,7 +66,7 @@
     <div class="feed" >
         <table style="width:100%;height:'';"><tr id="list_emp">
             <td >
-                <script>
+                <script language="JavaScript">
                 document.write(i);
                 </script>
             </td>
@@ -79,16 +79,14 @@
             <td>
                 <a href="feed/{{ feed.pk }}/" class="title">{{ feed.title }}</a>
             </td>
-
             <td>
-                <a class="name">{{ feed.author }}</a>
+                <a class="postid">{{ feed.postid }}</a>
             </td>
-
             <td>
                 <a class="date">{{ feed.created_at }}</a>
             </td>
             <hr>
-        <script>
+        <script language="JavaScript">
         i--;
         </script>
         </tr></table>

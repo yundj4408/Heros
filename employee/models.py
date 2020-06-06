@@ -3,8 +3,8 @@ from accounts.models import User
 
 # Create your models here.
 class Article(models.Model):
+    postid      = models.CharField(max_length=20)
     menuid      = models.CharField(max_length=120,default='')
-    author      = models.CharField(max_length=120)
     title       = models.CharField(max_length=120)
     text        = models.TextField()
     place       = models.CharField(max_length=120)

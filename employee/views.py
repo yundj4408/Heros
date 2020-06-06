@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from employee.models import Article
+from accounts.models import User
+from django.contrib.auth import get_user_model
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def employee_all(request):
     articles = Article.objects.all()
@@ -9,13 +12,14 @@ def employee_all(request):
     posts = paginator.get_page(page)
     return render(request, 'employee/employee_list.html', { 'articles':articles , 'posts':posts})
 
+@login_required
 def new_feed(request):
     if request.method == 'POST':  # 폼이 전송되었을 때만 아래 코드를 실행
-        if request.POST['menuid'] !='게시판선택' and request.POST['author'] != '' and request.POST['title'] != '' and request.POST['price'] != '' and request.POST['text'] != '' and \
+        if request.POST['menuid'] !='게시판선택' and request.POST['title'] != '' and request.POST['price'] != '' and request.POST['text'] != '' and \
                 request.POST['place'] != '':
             new_article = Article.objects.create(
+                postid = User.objects.get(id = request.user.get_username()),
                 menuid=request.POST['menuid'],
-                author=request.POST['author'],
                 title=request.POST['title'],
                 place=request.POST['place'],
                 price=request.POST['price'],
@@ -30,21 +34,23 @@ def detail_feed(request, pk):
     article = Article.objects.get(pk=pk)
     return render(request, 'employee/detail_feed.html', {'feed': article})
 
-
+@login_required
 def remove_feed(request, pk):
     article = Article.objects.get(pk=pk)
-
+    check =request.user.id
     if request.method == 'POST':
+        if check == article.postid:
             article.delete()
             return redirect('/employee/')  # 첫페이지로 이동하기
-
-    return render(request, 'employee/remove_feed.html', {'feed': article})
-
+        #else:
+         #   return redirect('/employee/')
+        return render(request, 'employee/remove_feed.html', {'feed': article})
+@login_required
 def edit_feed(request, pk):
     article = Article.objects.get(pk=pk)
-
+    check = request.user.id
     if request.method == 'POST':
-            article.author = request.POST['author']
+        if check == article.postid:
             article.title = request.POST['title']
             article.place = request.POST['place']
             article.price = request.POST['price']
