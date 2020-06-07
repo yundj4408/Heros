@@ -8,41 +8,23 @@
     }
 
         #container{
+            position: relative;
+            left: 0px;
+            top:100px;
             height:500px;
             display : flex;
             justify-content: center;
             align-items: center;
+
+
+
         }
-        #item {
-        }
+
         body {
+             #container .btn-success{
+             font-family: 'InkLipquid';
+             font-size : 2em;
 
-
-		background-image : url('{% static 'image/White.jpg' %}');
-
-
-		background-repeat : no-repeat;
-		background-size : cover;
-        }
-
-        #container .btn-success{
-        font-family: 'InkLipquid';
-        font-size : 2em;
-        }
-        .container .btn-success {
-        width :90px;
-        height:50px;
-        }
-        .container .save{
-        position: absolute;
-        top: 67%;
-        left: 43%;
-        }
-
-        .container .Sign{
-        position: absolute;
-        top: 67%;
-        left: 53%;
         }
 
 
@@ -52,8 +34,12 @@
     </style>
 </head>
 
-<div class="container" style="font-family: 'InkLipquid'; font-size: 1em;" >
+
+
+<div class="container" style="font-family: 'InkLipquid'; font-size: 1em;">
+
     <div id ="container">
+        <img src="{% static 'image/Hero.jpg'%}" class="Hero" style="width:30%; position: relative; right: 10%;">
         <center>
             <div id ="item">
                 <h1 style="font-family: 'InkLipquid'; font-size: 5em;"><a href="{% url 'main:index' %}" >Heros</a></h1>
