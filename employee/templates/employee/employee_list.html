@@ -47,6 +47,8 @@
 <div class="container">
     <table style="width:100%"><tr id="list_emp">
         <td>글 번호</td>
+        <td>분류</td>
+        <td>장소</td>
         <td>제목</td>
         <td>글쓴이</td>
         <td>날짜</td>
@@ -55,19 +57,16 @@
 </div>
 
 <div class="container">
-    {% for feed in articles %}
-    <script language="JavaScript">
-        i++;
-     </script>
-    {% endfor %}
-
+    <script>i=0</script>
     {% for feed in posts %}
 
     <div class="feed" >
         <table style="width:100%;height:'';"><tr id="list_emp">
             <td >
                 <script language="JavaScript">
+                i++
                 document.write(i);
+                i++
                 </script>
             </td>
             <td>
