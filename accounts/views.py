@@ -25,7 +25,10 @@ def login_view(request):
         login_form = LoginForm(request, request.POST)
         if login_form.is_valid():
             auth_login(request, login_form.get_user())
-        return redirect('/')
+            return redirect('/')
+        else:
+            messages.info(request,'다시 로그인해 주세요')
+            return render(request, 'accounts/login.html', {'login_form': login_form})
 
     else:
         login_form = AuthenticationForm()
