@@ -41,8 +41,8 @@
     <div id ="container">
         <img src="{% static 'image/Hero.jpg'%}" class="Hero" style="width:30%; position: relative; right: 10%;">
         <center>
-            <div id ="item">
-                <h1 style="font-family: 'InkLipquid'; font-size: 5em;"><a href="{% url 'main:index' %}" >Heros</a></h1>
+            <div>
+                <a href="{% url 'main:index' %}" style = " font-size : 5em; color: Green" >Heros</a>
             </div>
 
             <form method="POST" action="{% url 'accounts:login_view' %}" >
