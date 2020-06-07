@@ -32,7 +32,9 @@ def new_feed(request):
 
 def detail_feed(request, pk):
     article = Article.objects.get(pk=pk)
-    return render(request, 'employee/detail_feed.html', {'feed': article})
+    feed_text=article.text
+    feed_text_list=feed_text.split('\n')
+    return render(request, 'employee/detail_feed.html', {'feed': article, 'feed_text_list':feed_text_list})
 
 @login_required
 def remove_feed(request, pk):

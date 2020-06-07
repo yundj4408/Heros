@@ -20,8 +20,10 @@
     <hr>
     <br><!--
     <b>내용</b> -->
-    {{ feed.text}}
+    {% for text in feed_text_list %}
+    {{text}}
     <br>
+    {% endfor %}
     <br>
     <hr>
     <b>덧글</b>
