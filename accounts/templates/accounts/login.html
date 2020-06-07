@@ -8,6 +8,9 @@
     }
 
         #container{
+            position: relative;
+            left: 300px;
+            top:100px;
             height:500px;
             display : flex;
             justify-content: center;
@@ -18,39 +21,37 @@
         body {
 
 
-		background-image : url('{% static 'image/White.jpg' %}');
-
-
-		background-repeat : no-repeat;
-		background-size : cover;
-        }
 
         #container .btn-success{
         font-family: 'InkLipquid';
         font-size : 2em;
         }
+
         .container .btn-success {
         width :90px;
         height:50px;
         }
+
         .container .save{
-        position: absolute;
+        position: relative;
         top: 67%;
-        left: 43%;
+
         }
 
         .container .Sign{
-        position: absolute;
-        top: 67%;
-        left: 53%;
+        position: relative;
+        top: 60%;
+
         }
 
 
 
 
-
+`
     </style>
 </head>
+<img src="./imgs/position.jpg" class="fixed">
+
 
 <div class="container" style="font-family: 'InkLipquid'; font-size: 1em;" >
     <div id ="container">
