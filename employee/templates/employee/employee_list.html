@@ -45,13 +45,13 @@
 여기는 노예
 
 <div class="container">
-    <table style="width:100%"><tr id="list_emp">
-        <td>글 번호</td>
-        <td>분류</td>
-        <td>장소</td>
-        <td>제목</td>
-        <td>글쓴이</td>
-        <td>날짜</td>
+    <table style="width:100%"><tr class="list_emp">
+        <td style="width:10%">글 번호</td>
+        <td style="width:10%">분류</td>
+        <td style="width:10%">장소</td>
+        <td >제목</td>
+        <td style="width:10%">글쓴이</td>
+        <td style="width:20%">날짜</td>
     </tr>
     </table>
 </div>
@@ -61,27 +61,27 @@
     {% for feed in posts %}
 
     <div class="feed" >
-        <table style="width:100%;height:'';"><tr id="list_emp">
-            <td >
+        <table style="width:100%;height:'';"><tr>
+            <td style="width:10%">
                 <script language="JavaScript">
                 i++
                 document.write(i);
                 i++
                 </script>
             </td>
-            <td>
+            <td style="width:10%">
                 <a class="menuid">{{ feed.menuid }}</a>
             </td>
-            <td>
+            <td style="width:10%">
                 <a class="place">{{ feed.place }}</a>
             </td>
             <td>
                 <a href="feed/{{ feed.pk }}/" class="title">{{ feed.title }}</a>
             </td>
-            <td>
+            <td style="width:10%">
                 <a class="postid">{{ feed.postid }}</a>
             </td>
-            <td>
+            <td style="width:20%">
                 <a class="date">{{ feed.created_at }}</a>
             </td>
             <hr>
