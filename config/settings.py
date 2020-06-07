@@ -125,7 +125,7 @@ USE_TZ = False #js
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "~Help_me_neighbor/static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
