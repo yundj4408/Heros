@@ -1,5 +1,5 @@
 function inputChecker(){
-        if(inputForm.categorie.value == "게시판선택"){
+        if(inputForm.menuid.value == "게시판선택"){
             alert("카테고리를 골라주세요");
             return false;
         }
