@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}구해요!{% endblock %}
+{% block contents %}
+{% load static %}
+<script src="{% static 'js/inputchecker.js'%}"></script>
+<style>
+ select {
+width: 200px;
+padding: .8em .5em;
+border: 1px solid #999;
+font-family: inherit;
+background: url('arrow.jpg') no-repeat 95% 50%;
+border-radius: 0px;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+</style>
+<script>
+
+</script>
+
+<div class="form_box">
+    <form Name="inputForm" Onsubmit="return inputChecker()" action="" method="POST">
+        {% csrf_token %}
+        <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+        <h2 class="text-center">게시글 입력하기</h2>
+            <div class="table table-responsive">
+                <table class="table table-striped">
+
+            <tr>
+                <td><b>작성자 </b></td>
+                <td>{{user.id}}</td>
+            </tr>
+                    <tr>
+                <td><b>카테고리 </b></td>
+                <td>
+                <select name="menuid">
+                     <option value="게시판선택">게시판선택</option>
+                     <option value="집안일">집안일</option>
+                     <option value="짐 옮기기">짐 옮기기</option>
+                     <option value="펫 서비스">펫 서비스</option>
+                     <option value="역할 대행">역할 대행</option>
+                     <option value="단거리 배달">단거리 배달</option>
+                     <option value="카풀">카풀</option>
+                     <option value="기타">기타</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>제목</b></td>
+                <td><input type="text"  class="form-control" name="title"></td>
+            </tr>
+            <tr>
+                <td><b>장소</b></td>
+                <td><input type="text"  class="form-control" name="place"></td>
+            </tr>
+            <tr>
+                <td><b>금액</b></td>
+                <td><input type="text"  class="form-control" name="price"></td>
+            </tr>
+
+            <tr>
+                <td><b>내용</b></td>
+                <td><textarea rows="10" cols="50" name="text"  class="form-control">
+날짜:
+시간:
+위치:</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"  class="text-center">
+
+                    <input type="submit" value="글쓰기" class="btn btn-success">
+                    <input type="button"  class="btn btn-primary" onclick="location.href='/employer'" value="취소">
+                </td>
+            </tr>
+
+          </table>
+
+
+            </div>
+    </div>
+</div>
+    </form>
+</div>
+
+{% endblock %}

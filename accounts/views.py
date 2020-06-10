@@ -4,8 +4,7 @@ from .forms import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.hashers import check_password
 
 # Create your views here.
 def signup_view(request):
@@ -65,3 +64,25 @@ def delete(request):
         return redirect('/')
 
     return render(request, 'accounts/delete.html')
+
+
+
+def change_pw(request):
+    context= {}
+    if request.method == "POST":
+        current_password = request.POST.get("origin_password")
+        user = request.user
+        if check_password(current_password,user.password):
+            new_password = request.POST.get("password1")
+            password_confirm = request.POST.get("password2")
+            if new_password == password_confirm:
+                user.set_password(new_password)
+                user.save()
+                auth.login(request,user)
+                return redirect('/')
+            else:
+                context.update({'error':"새로운 비밀번호를 다시 확인해주세요."})
+    else:
+        context.update({'error':"현재 비밀번호가 일치하지 않습니다."})
+
+    return render(request, "accounts/change_pw.html",context)
