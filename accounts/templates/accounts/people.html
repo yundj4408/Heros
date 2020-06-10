@@ -1,4 +1,4 @@
-    {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% block title %}마이페이지{% endblock %}
 {% block contents %}
 <head>
@@ -6,6 +6,7 @@
     <style>
       #jb-container {
         width: 1000px;
+        height: 420px;
         margin: 0px auto;
         padding: 20px;
         border: 1px solid #bcbcbc;
@@ -31,14 +32,17 @@
       </div>
       <div id="jb-content">
           <h2>회원정보</h2>
+          <br>
           <form method="POST">
               {% csrf_token %}
-              <p>아이디 {{ people.id}}</p>
-              <p>이름 {{ people.name }}</p>
-              <p>전화번호 {{ people.phnum }}</p>
+              <p><b>아이디</b> {{ people.id}}</p>
+              <p><b>이름</b> {{ people.name }}</p>
+              <p><b>전화번호</b> {{ people.phnum }}</p>
+              <a href="/accounts/update" class="btn btn-dark" >회원정보 수정</a>
+              <a href="{% url 'accounts:change_pw' %}" class="btn btn-dark">비밀번호 변경</a>
+              <a href="{% url 'accounts:delete' %}" class="btn btn-danger" style="float:right">회원탈퇴</a>
           </form>
       </div>
-      <br><br><br><br><br><br><br><br><br>
   </div>
 
 
