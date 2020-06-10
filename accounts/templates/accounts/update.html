@@ -13,7 +13,11 @@
         <label>전화번호</label>
         <input  type="text" name="phnum" autofocus="" autocapitalize="none" autocomplete="phnum" maxlength="20" required="" id="phnum">
     </div>-->
-    {{ change_form }}
+    <!--{{ change_form }}-->
+    <table>
+    <tr><td><label for="id_name">Name: </label></td><td><input type="text" name="name" maxlength="10" required id="id_name"></td></tr>
+    <tr><td><label for="id_phnum">Phnum:</label></td><td><input type="text" name="phnum" maxlength="15" required id="id_phnum"></td></tr>
+    </table>
     <input type="submit" value="정보 변경"/>
 </form>
 
