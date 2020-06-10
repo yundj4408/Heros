@@ -1,4 +1,4 @@
-#펫관련 분류게시글만 모아보기
+<!--펫관련 분류게시글만 모아보기-->
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
 {% block contents %}
@@ -28,7 +28,7 @@
     }
 
 </style>
-#카테고리 분류
+<!--카테고리 분류-->
 <div class="container">
 <nav id="bo_cate">
             <ul>
@@ -44,7 +44,7 @@
 </nav>
 </div>
 
-#게시판 표시 정보
+<!--게시판 표시 정보-->
 <div class="container">
     <table style="width:100%"><tr class="list_emp">
         <td style="width:10%">글 번호</td>
@@ -56,7 +56,7 @@
     </tr>
     </table>
 </div>
-#게시글 포스팅
+<!--게시글 포스팅-->
 <div class="container">
     <script>i=0</script>
     #views.py에서 5개씩 1페이지로 만들어 게시판에 게시
@@ -107,7 +107,7 @@
      <a href="?page={{posts.paginator.num_pages}}"> >> </a>
      {% endif %}
         </td>
-        #글쓰기 버튼
+        <!--글쓰기 버튼-->
         <td style="width:25%;">
             <a href="/employee/new" style="float:right"><div class="menu" >글쓰기</div></a>
         </td>

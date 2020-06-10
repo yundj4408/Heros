@@ -1,35 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
 {% block contents %}
-<style type="text/css">
-@charset "utf-8";
-    .menu {
-        text-align:center;
-        height:50px;
-        width:100px;
-      transition: all 0.5s ease;
-      background: white;
-      padding: 10px;
-      font-family: 'Nanum Gothic', sans-serif;
-      font-weight: 600;
-    }
-    .menu:hover{
-       color:#FFFFFF;
-      background: #10A4FF;
-    }
-    .menu-discript{
-      color:#999999;
-      font-weight: lighter;
-      margin:10px 0;
-    }
-    #list_emp td{
-       width:10%;
-    }
-
-</style>
 
 
 <div class="container">
+
     <script>i=0</script>
     {% for feed in posts %}
 
