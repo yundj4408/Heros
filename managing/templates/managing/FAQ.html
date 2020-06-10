@@ -1,5 +1,84 @@
 {% extends 'base.html' %}
-{% block title %}FAQ{% endblock %}
+{% block title %}구해요!{% endblock %}
 {% block contents %}
-여기는 FAQ
+<style type="text/css">
+@charset "utf-8";
+    .menu {
+        text-align:center;
+        height:50px;
+        width:100px;
+      transition: all 0.5s ease;
+      background: white;
+      padding: 10px;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-weight: 600;
+    }
+    .menu:hover{
+       color:#FFFFFF;
+      background: #10A4FF;
+    }
+    .menu-discript{
+      color:#999999;
+      font-weight: lighter;
+      margin:10px 0;
+    }
+    #list_emp td{
+       width:10%;
+    }
+
+</style>
+
+
+<div class="container">
+    <script>i=0</script>
+    {% for feed in posts %}
+
+    <div class="feed" >
+        <table style="width:100%;height:'';"><tr>
+            <td style="width:10%">
+                <script language="JavaScript">
+                i++
+                document.write(i);
+                i++
+                </script>
+            </td>
+            <td>
+                <a href="FAQ/detail/{{ feed.pk }}" class="title">{{ feed.title }}</a>
+            </td>
+            <td style="width:20%">
+                <a class="date">{{ feed.created_at }}</a>
+            </td>
+            <hr>
+        <script language="JavaScript">
+        i--;
+        </script>
+        </tr></table>
+    </div>
+    {% endfor %}
+</div>
+<br>
+
+<!-- 여기부터 글 페이지 이동 영역-->
+<div class="container">
+    <table style="width:100%"><tr>
+        <td style="width:25%;"></td>
+        <td style="width:50%;text-align:center;">
+
+    {% if posts.has_previous %}
+     <a href="?page=1"> << </a>
+     <a href="?page={{posts.previous_page_number}}"> < </a><a>   </a>
+            {%endif%}
+     <span>{{posts.number}}</span>
+     <span>/</span>
+     <span>{{posts.paginator.num_pages}}</span>
+     {% if posts.has_next %}
+     <a href="?page={{posts.next_page_number}}"> > </a>
+     <a href="?page={{posts.paginator.num_pages}}"> >> </a>
+     {% endif %}
+        </td>
+
+
+    </tr></table>
+</div>
+
 {% endblock %}
