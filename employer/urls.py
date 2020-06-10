@@ -4,6 +4,7 @@ from .views import *
 
 app_name = 'employer'
 
+#views.py기능과 url연결
 urlpatterns = [
     path('',employer_all, name='employer_all'),
     path('new/',new_feed, name='new_feed'),

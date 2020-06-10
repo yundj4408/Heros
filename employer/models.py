@@ -1,6 +1,7 @@
 from django.db import models
 from accounts.models import User
 
+#게시글 기본 틀 설정
 class Article(models.Model):
     postid      = models.CharField(max_length=20)
     menuid      = models.CharField(max_length=120,default='')
