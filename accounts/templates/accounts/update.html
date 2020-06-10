@@ -14,12 +14,21 @@
         <label>전화번호</label>
         <input  type="text" name="phnum" autofocus="" autocapitalize="none" autocomplete="phnum" maxlength="20" required="" id="phnum">
     </div>-->
+<<<<<<< HEAD
 
     {{ change_form }}
     <br>
     {{r_test}}
 
     <input type="submit" value="정보 변경"/> <a href="{% url 'accounts:delete' %}" class="btn btn-danger">회원탈퇴</a>
+=======
+    <!--{{ change_form }}-->
+    <table>
+    <tr><td><label for="id_name">Name: </label></td><td><input type="text" name="name" maxlength="10" required id="id_name"></td></tr>
+    <tr><td><label for="id_phnum">Phnum:</label></td><td><input type="text" name="phnum" maxlength="15" required id="id_phnum"></td></tr>
+    </table>
+    <input type="submit" value="정보 변경"/>
+>>>>>>> upstream/master
 </form>
 
 

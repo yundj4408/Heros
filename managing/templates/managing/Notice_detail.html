@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}구해요!{% endblock %}
+{% block contents %}
+<style>
+    #info_table{
+    }
+    #info_table td{
+        width:'';
+    }
+</style>
+<div class="container">
+    <hr>
+    <b>제목</b> &nbsp;&nbsp;{{ feed.title }}
+    <hr>
+    <table style="width:100%" id="info_table"><tr>
+        <td><b>날짜</b>&nbsp;&nbsp; {{ feed.created_at }} </td>
+    </tr>
+    </table>
+    <hr>
+    <br><!--
+    <b>내용</b> -->
+    {% for text in feed_text_list %}
+    {{text}}
+    <br>
+    {% endfor %}
+    <br>
+    <hr>
+<br><br>
+</div>
+
+
+{% endblock %}

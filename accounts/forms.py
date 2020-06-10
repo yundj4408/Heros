@@ -27,6 +27,8 @@ class UserCreationForm(forms.ModelForm):
                 'required': 'True',
             }
         )
+
+
     )
     password1 = forms.CharField(
         label=_('Password'),
@@ -95,10 +97,10 @@ class UserCreationForm(forms.ModelForm):
 
 
 class CustomUserChangeForm(UserChangeForm):
+
     class Meta:
         model = User
-        fields = ( 'name','phnum',)
-
+        fields = ( 'name','phnum')
 
 
 class LoginForm(AuthenticationForm):
