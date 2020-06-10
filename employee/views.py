@@ -4,7 +4,8 @@ from accounts.models import User
 from django.contrib.auth import get_user_model
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+
+#모든 게시글 정보 불러오기
 def employee_all(request):
     articles = Article.objects.all()
     paginator = Paginator(articles, 5)
@@ -12,6 +13,7 @@ def employee_all(request):
     posts = paginator.get_page(page)
     return render(request, 'employee/employee_list.html', { 'articles':articles , 'posts':posts})
 
+#카테고리별로 분류하기
 def sort1(request):
     articles = Article.objects.filter(menuid="집안일")
     paginator = Paginator(articles, 5)
@@ -57,7 +59,7 @@ def sort7(request):
 
 
 
-
+#로그인 했을 경우 새 글쓰기
 @login_required
 def new_feed(request):
     if request.method == 'POST':  # 폼이 전송되었을 때만 아래 코드를 실행
@@ -77,13 +79,14 @@ def new_feed(request):
     return render(request, 'employee/new_feed.html')
 
 
-
+#세부사항 보기
 def detail_feed(request, pk):
     article = Article.objects.get(pk=pk)
     feed_text=article.text
     feed_text_list=feed_text.split('\n')
     return render(request, 'employee/detail_feed.html', {'feed': article, 'feed_text_list':feed_text_list})
 
+#로그인시+본인 작성글만 삭제가능
 @login_required
 def remove_feed(request, pk):
     article = Article.objects.get(pk=pk)
@@ -95,6 +98,8 @@ def remove_feed(request, pk):
         #else:
          #   return redirect('/employee/')
         return render(request, 'employee/remove_feed.html', {'feed': article})
+
+#로그인시+본인 작성글만 삭제가능
 @login_required
 def edit_feed(request, pk):
     article = Article.objects.get(pk=pk)

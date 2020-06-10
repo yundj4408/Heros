@@ -3,6 +3,7 @@ from .views import *
 
 app_name = 'employee'
 
+#views.py기능과 url연결
 urlpatterns = [
     path('',employee_all, name='employee_all'),
     path('new/',new_feed, name='new_feed'),
