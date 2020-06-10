@@ -18,6 +18,8 @@
     <tr><td><label for="id_name">Name: </label></td><td><input type="text" name="name" maxlength="10" required id="id_name"></td></tr>
     <tr><td><label for="id_phnum">Phnum:</label></td><td><input type="text" name="phnum" maxlength="15" required id="id_phnum"></td></tr>
     </table>
+    <a href="{% url 'accounts:change_pw' %}" class="btn btn-danger">비밀번호 변경</a>
+    <br>
     <input type="submit" value="정보 변경"/>
 </form>
 

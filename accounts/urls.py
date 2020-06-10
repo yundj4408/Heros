@@ -12,4 +12,5 @@ urlpatterns = [
     path('people/<str:id>/', people, name='people'),
     path('update/', update, name='update'),
     path('delete/', delete, name='delete'),
+    path('change_pw/',change_pw, name='change_pw'),
 ]
