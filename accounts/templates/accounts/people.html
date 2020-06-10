@@ -1,18 +1,45 @@
     {% extends 'base.html' %}
 {% block title %}마이페이지{% endblock %}
 {% block contents %}
-<div class="container" >
-    <h1>마이페이지</h1>
-    <form method="POST">
-        {% csrf_token %}
-        ID: {{ people.id }}
-        <br>
-        이름: {{ people.name }}
-        <br>
-        전화번호: {{ people.phnum }}
-        <div>
-           <a href="{% url 'accounts:update' %}">계정정보수정</a>
-        </div>
-    </form>
-</div>
+<head>
+    <meta charset="utf-8">
+    <style>
+      #jb-container {
+        width: 1000px;
+        margin: 0px auto;
+        padding: 20px;
+        border: 1px solid #bcbcbc;
+      }
+      #jb-header {
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #bcbcbc;
+      }
+      #jb-content {
+        width: 958px;
+        padding: 20px;
+        margin-bottom: 20px;
+        float: left;
+        border: 1px solid #bcbcbc;
+      }
+
+    </style>
+  </head>
+  <div id="jb-container">
+      <div id="jb-header">
+        <h1>마이페이지</h1>
+      </div>
+      <div id="jb-content">
+          <h2>회원정보</h2>
+          <form method="POST">
+              {% csrf_token %}
+              <p>아이디 {{ people.id}}</p>
+              <p>이름 {{ people.name }}</p>
+              <p>전화번호 {{ people.phnum }}</p>
+          </form>
+      </div>
+      <br><br><br><br><br><br><br><br><br>
+  </div>
+
+
 {% endblock %}
