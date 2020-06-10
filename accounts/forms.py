@@ -1,11 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import ugettext_lazy as _
-from .models import UserManager, User
-from django.contrib.auth import get_user_model
+from .models import User
 from django.contrib.auth.forms import AuthenticationForm,UserChangeForm
 
-class UserCreationForm(forms.ModelForm):
+class UserCreationForm(forms.ModelForm): #유저 생성 뷰를 위한 폼
     id = forms.CharField(
         label=_('ID'),
         required=True,
@@ -27,8 +25,6 @@ class UserCreationForm(forms.ModelForm):
                 'required': 'True',
             }
         )
-
-
     )
     password1 = forms.CharField(
         label=_('Password'),
@@ -77,33 +73,27 @@ class UserCreationForm(forms.ModelForm):
         model = User
         fields = ('id', 'name','phnum','civnum')
 
-    def clean_password2(self):
+    def clean_password2(self): #비밀번호 확인 후 해싱
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Passwords don't match")
         return password2
 
-    def save(self, commit=True):
-        # Save the provided password in hashed format
+    def save(self, commit=True): #회원 정보 저장
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
         return user
 
-
-#class UserChangeForm(forms.ModelForm):
-
-
-class CustomUserChangeForm(UserChangeForm):
-
+class CustomUserChangeForm(UserChangeForm): #유저 정보 변경 폼
     class Meta:
         model = User
         fields = ( 'name','phnum')
 
 
-class LoginForm(AuthenticationForm):
+class LoginForm(AuthenticationForm): #로그인 폼
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         class_update_fields = ['username', 'password']
@@ -112,7 +102,7 @@ class LoginForm(AuthenticationForm):
                 'class': 'form-control'
             })
 
-class UserDeleteForm(forms.ModelForm):
+class UserDeleteForm(forms.ModelForm): #유저 삭제 폼
     class Meta:
         model=User
         fields = ('name',)
