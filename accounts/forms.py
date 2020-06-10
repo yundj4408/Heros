@@ -95,10 +95,10 @@ class UserCreationForm(forms.ModelForm):
 
 
 class CustomUserChangeForm(UserChangeForm):
+
     class Meta:
         model = User
-        fields = ( 'name','phnum',)
-
+        fields = ( 'name','phnum','password')
 
 
 class LoginForm(AuthenticationForm):
