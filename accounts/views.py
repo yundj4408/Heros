@@ -48,7 +48,7 @@ def update(request):
         if change_form.is_valid():
             change_form.save()
             return redirect('/')
-        return render(request, 'accounts/update.html',{'change_form':change_form})
+        return render(request, 'accounts/update.html',{'change_form':change_form, 'r_test':request.user})
 
     else:
         change_form = CustomUserChangeForm(request.POST)
