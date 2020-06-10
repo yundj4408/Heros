@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
-{% block contents %}
-{% load static %}
+{% block contents %}                                                         <!--게시판에서 글쓰기 항목을 눌렀을 때 나오는 페이지이고, 게시글을 입력할 수 있는 창이 나오고 정보를 입력하면 -->
+{% load static %}                                                            <!--정보가 저장이 된다. -->
 <script src="{% static 'js/inputchecker.js'%}"></script>
 <style>
  select {
@@ -29,34 +29,33 @@ appearance: none;
         <h2 class="text-center">게시글 입력하기</h2>
             <div class="table table-responsive">
                 <table class="table table-striped">
-
-            <tr>
-                <td><b>작성자 </b></td>
-                <td>{{user.id}}</td>
-            </tr>
                     <tr>
-                <td><b>카테고리 </b></td>
-                <td>
-                <select name="menuid">
-                     <option value="게시판선택">게시판선택</option>
-                     <option value="집안일">집안일</option>
-                     <option value="짐 옮기기">짐 옮기기</option>
-                     <option value="펫 서비스">펫 서비스</option>
-                     <option value="역할 대행">역할 대행</option>
-                     <option value="단거리 배달">단거리 배달</option>
-                     <option value="카풀">카풀</option>
-                     <option value="기타">기타</option>
-                </select>
-                </td>
-            </tr>
-            <tr>
-                <td><b>제목</b></td>
-                <td><input type="text"  class="form-control" name="title"></td>
-            </tr>
-            <tr>
-                <td><b>장소</b></td>
-                <td><input type="text"  class="form-control" name="place"></td>
-            </tr>
+                        <td><b>작성자 </b></td>
+                        <td>{{user.id}}</td>                                             <!--로그인해서 글쓰는 작성자의 ID가 나온다.-->
+                    </tr>
+                    <tr>
+                        <td><b>카테고리 </b></td>
+                        <td>
+                            <select name="menuid">                                       <!--input tag를 사용하여 category를 지정할 수 있게 하였다.-->
+                                <option value="게시판선택">게시판선택</option>
+                                <option value="집안일">집안일</option>
+                                <option value="짐 옮기기">짐 옮기기</option>
+                                <option value="펫 서비스">펫 서비스</option>
+                                <option value="역할 대행">역할 대행</option>
+                                <option value="단거리 배달">단거리 배달</option>
+                                <option value="카풀">카풀</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>제목</b></td>
+                        <td><input type="text"  class="form-control" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td><b>장소</b></td>
+                        <td><input type="text"  class="form-control" name="place"></td>
+                    </tr>
             <tr>
                 <td><b>금액</b></td>
                 <td><input type="text"  class="form-control" name="price"></td>
@@ -65,25 +64,21 @@ appearance: none;
             <tr>
                 <td><b>내용</b></td>
                 <td><textarea rows="10" cols="50" name="text"  class="form-control">
-날짜:
-시간:
-위치:</textarea>
+                날짜:
+                시간:
+                위치:</textarea>
                 </td>
             </tr>
             <tr>
                 <td colspan="2"  class="text-center">
-
                     <input type="submit" value="글쓰기" class="btn btn-success">
                     <input type="button"  class="btn btn-primary" onclick="location.href='/employer'" value="취소">
                 </td>
             </tr>
-
           </table>
-
-
             </div>
-    </div>
-</div>
+        </div>
+        </div>
     </form>
 </div>
 

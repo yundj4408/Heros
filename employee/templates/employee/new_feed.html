@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}구해요!{% endblock %}
-{% block contents %}
-{% load static %}
+{% block contents %}                                                    <!--게시판에서 글쓰기 항목을 눌렀을 때 나오는 페이지이고, 게시글을 입력할 수 있는 창이 나오고 정보를 입력하면 -->
+{% load static %}                                                       <!--정보가 저장이 된다. -->
 <script src="{% static 'js/inputchecker.js'%}"></script>
 <style>
  select {
@@ -32,12 +32,12 @@ appearance: none;
 
             <tr>
                 <td><b>작성자 </b></td>
-                <td>{{user.id}}</td>
+                <td>{{user.id}}</td>                                              <!--로그인해서 글쓰는 작성자의 ID가 나온다.-->
             </tr>
                     <tr>
                 <td><b>카테고리 </b></td>
                 <td>
-                <select name="menuid">
+                <select name="menuid">                                            <!--input tag를 사용하여 category를 지정할 수 있게 하였다.-->
                      <option value="게시판선택">게시판선택</option>
                      <option value="집안일">집안일</option>
                      <option value="짐 옮기기">짐 옮기기</option>

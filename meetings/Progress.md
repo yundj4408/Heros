@@ -9,13 +9,16 @@ Honey Badger팀 첫 아이디어 미팅
 누르면 링크에 연결되어 원격 강의 사이트에 접속되는 앱, 민식이법 관련 앱.)
 
 회의시간: 1시간 5분
+
 ![회의시간: 1시간 05분](0402.PNG)
 
 ## 4월 3일 
 카카오톡 설문조사로 아이디어 선정, (1시간 알바)
 
 ![투표](vote_idea1.PNG)
+
 ![투표](vote_idea2.PNG)
+
 ![투표](vote_idea3.PNG)
 
 ## 4월 5일
@@ -41,6 +44,7 @@ User Story같은 경우에는 As a type of user, I want some goal 형식으로 �
 교수님과의 상담 시간: 1시간
 
 ![회의시간: 상담](feedback1.jpg)
+
 ![회의시간: 상담](feedback2.jpg)
 
 ## 4월 10일 
@@ -72,25 +76,34 @@ GitHub README.md를 만들었고, PyCharm에 대해 공부하였다. README.md�
 수정하였다. 
 
 ![PyCharm](Pycharm.PNG)
+
 ![회의시간: 2시간 16분](0417.JPG)
 
 ## 5월 17일 
 Class Diagram, Sequence Diagram, HTML, 5월 21일에 있을 발표를 위한 PPT를 만들었다.
 
 ![Class Diagram 1](ClassDiagram1.png)
+
 ![Class Diagram 2](ClassDiagram2.png)
+
 ![Sequence Diagram ](SequenceDiagram.png)
+
 ![0517 ppt](0517ppt.PNG)
+
 ![회의시간: 2시간 40분](0517.PNG)
 
 ## 5월 18일
 Class Diagram을 수정하고, Pycharm을 이용하여 웹페이지 개발을 하였다.
+
 ![Class Diagram 3](ClassDiagram3.png)
 
 ## 5월 19일
 Pycharm을 이용하여 웹페이지 개발을 하였고, 5월21일에 있을 발표를 위한 PPT 편집을 마무리 하였다. 
+
 ![post1](post1.png)
+
 ![groupmeeting](groupmeeting.jpg)
+
 ![PPT0520](PPT0520.JPG)
 
 ## 5월 27일
@@ -98,12 +111,19 @@ Pycharm을 이용하여 웹페이지 개발을 하였고, 5월21일에 있을 �
 5시부터 8시까지 HTML  및 BACKEND구현
 
 메인페이지에 넣을 그림을 만들었다.
+
 ![0527.1](0527mainpageDesign.png)
+
 메인페이지에 적용한 모습이다.
+
 ![0527.2](0527mainpage.png)
+
 게시판 목록에 어떤게 들어갈 지 정하여 보았다.
+
 ![0527.3](0527boardlist.jpg)
+
 5월 27일 그룹 미팅 사진
+
 ![0527.4](0527meeting.jpg)
 
 ## 5월 30일
@@ -111,16 +131,21 @@ Pycharm을 이용하여 웹페이지 개발을 하였고, 5월21일에 있을 �
 그 후 11시까지 게시판 목록, 게시판 글쓰기, 게시판 글쓰기 수정, 로그인 페이지, 그리고 마이페이지를 수정하였다.
 
 게시판 글쓰기
+
 ![0530boardwrite](0530boardwrite.PNG)
 
 게시판 글 목록
+
 ![0530boardlist](0530boardlist.png)
 
 로그인 페이지
+
 ![0530login](0530login.png)
 
 마이페이지
+
 ![0530mypage](0530mypage.png)
+
 ![0530mypageedit](0530mypageedit.png)
 
 그룹 미팅 사진
@@ -156,9 +181,11 @@ ScrollTrigger
 마이페이지
 
 ![0606mypage1](0606mypage1.png)
+
 ![0606mypage2](0606mypage2.png)
 
 게시판 글 목록
+
 ![0606board](0606board.png)
 
 그룹 미팅 사진
@@ -167,6 +194,7 @@ ScrollTrigger
 
 
 ##6월7일
+
 팀원 4명(윤동준, 이상목, 이진우, 이준병)이 모여서 로그인 실패시
 다시 로그인해달라는 warning창이 뜨는 기능을 추가하였고, 게시판 글 넣을 때 제목,카테고리 등을
 기입하지 않으면 warning창이 뜨는 기능을 추가하였다. 
@@ -178,7 +206,7 @@ ScrollTrigger
  
 글 입력 warning 창
 
-![0607](0607categorywarning.png)
+![0607](0607categorywarning.jpg)
 
 메인페이지 창
 
@@ -192,3 +220,59 @@ login창
 
 ![0607](0607meeting.jpg)
  
+ ##6월 10일
+ 
+ 마이페이지, 마이페이지 수정, 고객센터, FAQ, 구인, 구직, 카테고리 분류 등 front-end,
+ back-end를 마무리를 하였다.
+
+ 마이페이지
+ 
+ ![0610](0610mypage.png)
+ 
+ 비밀번호 변경
+ 
+ ![0610](0610changepassword.PNG)
+ 
+ 회원정보 수정
+ 
+ ![0610](0610accountedit.PNG)
+ 
+ 회원탈퇴
+ 
+ ![0610](0610signout.PNG)
+ 
+ 고객센터
+ 
+ ![0610](0610customercenter.png)
+ 
+ FAQ
+ 
+ ![0610](0610FAQ.png)
+ 
+ 게시판 글쓰기
+ 
+ ![0610](0610writing.PNG)
+ 
+ 카테고리별 분류
+ 
+ ![0610](0610categorysort.png)
+ 
+ 댓글 
+ 
+ ![0610](0610comment.PNG)
+ 
+ ADMIN 사이트
+ 
+ ![0610](0610admin.png)
+ 
+ ADMIN notice 추가
+ 
+ ![0610](0610adminnotice.png)
+ 
+ ADMIN FAQ 추가 
+ 
+ ![0610](0610adminfaq.png)
+ 
+ 그룹 미팅 사진
+ 
+ ![0610](0610meeting.jpg)
