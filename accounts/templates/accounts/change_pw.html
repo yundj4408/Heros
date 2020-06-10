@@ -3,12 +3,9 @@
 {% block contents %}
 <div class="container">
         <div class="login_container">
-				    <div class="error_message">
-                {{error}} # 한 번에 제출 후 오류가 있을 경우 error를 가지고 return
-            </div>
-            <div class="login_title">
+            <h1>
                 Change Password
-            </div>
+            </h1>
             <form method="POST" action="{% url 'accounts:change_pw' %}" class="login_form">
                 {% csrf_token %}
 
