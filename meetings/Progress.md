@@ -273,6 +273,14 @@ login창
  
  ![0610](0610adminfaq.png)
  
+ 웹사이트 배포 (knu-heros.kro.kr) pc
+ 
+ ![0610](0610pcversion.jpg)
+ 
+ 모바일
+ 
+ ![0610](0610mobileversion.jpg)
+ 
  그룹 미팅 사진
  
  ![0610](0610meeting.jpg)
