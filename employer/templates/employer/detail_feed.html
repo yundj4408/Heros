@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}구해요!{% endblock %}
+{% block contents %}
+<style>
+    #info_table{
+    }
+    #info_table td{
+        width:'';
+    }
+</style>
+<div class="container">
+    <hr>
+    <b>제목</b> &nbsp;&nbsp;{{ feed.title }}
+    <hr>
+    <table style="width:100%" id="info_table"><tr>
+        <td><b>글쓴이</b>&nbsp;&nbsp; {{ feed.postid }} </td>
+        <td><b>날짜</b>&nbsp;&nbsp; {{ feed.created_at }} </td>
+    </tr>
+    </table>
+    <hr>
+    <br><!--
+    <b>내용</b> -->
+    {% for text in feed_text_list %}
+    {{text}}
+    <br>
+    {% endfor %}
+    <br>
+    <hr>
+    <b>덧글</b>
+<br><br>
+</div>
+
+<div class="container" style="width:100%;">
+    <table style="width:100%"><tr><td>
+    <a href="/employer/feed/{{ feed.pk }}/edit" style="float:left"><div class="menu" style="line-height:30px;">수정</div></a>
+    <a href="/employer/feed/{{ feed.pk }}/remove" style="float:left"><div class="menu" style="line-height:30px;">삭제</div></a>
+    <a href="/employer/" style="float:right"><div class="menu" >뒤로가기</div></a>
+    </td></tr></table>
+</div>
+<br>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://heros-2.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+{% endblock %}
