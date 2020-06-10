@@ -1,14 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-# Create your models here.
 
-
-class UserManager(BaseUserManager):
-    def create_user(self, id, name, password=None, civnum=None, phnum=None):
+class UserManager(BaseUserManager): # 유저 관리 클래스
+    def create_user(self, id, name, password=None, civnum=None, phnum=None): # 유저 생성 함수
         if not id:
             raise ValueError(_('Users must have an email address'))
 
@@ -23,7 +20,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, id, name, password=None,civnum=None, phnum=None):
+    def create_superuser(self, id, name, password=None,civnum=None, phnum=None): # 관리자유저 생성 함수
         user = self.create_user(
             name=name,
             id=id,
@@ -39,7 +36,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin): #유저 모델
     id = models.CharField(
         verbose_name=_('ID'),
         max_length=20,
