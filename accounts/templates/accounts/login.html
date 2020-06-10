@@ -15,29 +15,11 @@
             display : flex;
             justify-content: center;
             align-items: center;
-
-
-
-        }
-
-        body {
-             #container .btn-success{
-             font-family: 'InkLipquid';
-             font-size : 2em;
-
-        }
-
-
-
-
-
+            font-family: 'InkLipquid';
+         }
     </style>
 </head>
-
-
-
-<div class="container" style="font-family: 'InkLipquid'; font-size: 1em;">
-
+<div class="container" style="font-size: 1em;">
     <div id ="container">
         <img src="{% static 'image/Hero.jpg'%}" class="Hero" style="width:30%; position: relative; right: 10%;">
         <center>
@@ -53,22 +35,37 @@
                     {% endfor %}
                 {% endif %}
                 <div class="form-group" >
-                  <table style="width:100%;vertical-align:middle;"><tr style="align-items: center;"><td style="width:20%;">
-                      <label style="color: Black ; font-size: 3em;" >ID</label></td>
-                      <td style="float:right;line-height:10px;"><div style="width:100%;height:100%;">
-                          <br><br>
-                          <input  type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="20" required="" id="id_username">
-                      </div></td>
-                  </tr></table></div>
-              <div class="form-group" >
-                  <table style="width:100%"><tr><td style="width:20%;">
-                <label style="color: Black ; font-size: 3em;">P.W</label></td>
-                      <td style="float:right"><div><br>
-                        <input type="password" name="password" autocomplete="current-password" required="" id="id_password">                  </div></td></tr></table></div>
-                    </tr></table>
-              <input type="submit" class="save btn btn-success"  value="Log in">
-
-              <a href="{% url 'accounts:signup_view' %}">
+                  <table style="width:100%;vertical-align:middle;">
+                      <tr style="align-items: center;">
+                        <td style="width:20%;">
+                            <label style="color: Black ; font-size: 3em;" >ID</label>
+                        </td>
+                        <td style="float:right;line-height:10px;">
+                            <div style="width:100%;height:100%;">
+                                <br><br>
+                                <input  type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="20" required="" id="id_username">
+                            </div>
+                        </td>
+                      </tr>
+                  </table>
+                </div>
+                <div class="form-group" >
+                  <table style="width:100%">
+                      <tr>
+                          <td style="width:20%;">
+                            <label style="color: Black ; font-size: 3em;">P.W</label>
+                          </td>
+                          <td style="float:right">
+                                <div>
+                                    <br>
+                                    <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+                                </div>
+                          </td>
+                      </tr>
+                  </table>
+                </div>
+                <input type="submit" class="save btn btn-success"  value="Log in">
+                <a href="{% url 'accounts:signup_view' %}">
                 <button type="button" class="Sign btn btn-success">Signup</button>
               </a>
             </form>
