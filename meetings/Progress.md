@@ -279,7 +279,7 @@ login창
  
  모바일
  
- ![0610](0610mobileversion.jpg)
+ ![0610](0610mobileversion.png)
  
  그룹 미팅 사진
  
